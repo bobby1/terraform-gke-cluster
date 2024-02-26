@@ -1,11 +1,9 @@
-* Terraform-gke-cluster *
+# Terraform-gke-cluster
 
-This repo is a branch of Terraform's companion repo to the [Provision a GKE Cluster tutorial](https://developer.hashicorp.com/terraform/tutorials/kubernetes/gke), containing Terraform configuration files to provision a GKE cluster on GCP.
+This repo is a branch of Terraform's companion repo to the [Provision a GKE Cluster tutorial](https://developer.hashicorp.com/terraform/tutorials/kubernetes/gke), containing Terraform configuration files to provision a GKE cluster on GCP. The code has been rewritten to use Google's best practices for Terraform and to obfuscation of sensitive information.
 
-This sample repo also creates a VPC and subnet for the GKE cluster. This is not required but highly recommended to keep your GKE cluster isolated.
-
-## Demonstration principle
-* This repo has modifications of the code utilizing Google's best practices using Terraform https://cloud.google.com/docs/terraform/best-practices-for-terraform from the original files and formats.
+## Demonstration principles
+* This repo has modifications of the code utilizing Google's best practices using Terraform (https://cloud.google.com/docs/terraform/best-practices-for-terraform) from the original files and formats.
 
 * This repo also demonstrates the use of base64 JSON encoding to obfuscate a variable or local file which may be sensitive, as an alternative to other secrets managers, i.e. Github secrets, Google secrets manager or AWS secrets manager.  This eliminates the need for setup for development environments or small projects, and reliance on an external service.  The demonstration takes advantage of Terraform's built-in file base64 decoder.  This approach can be used to encode other sensitive information such as passwords, user names or project and program variables.
 
@@ -55,14 +53,18 @@ If you no longer need the stack,  you can clean up the deployment by using
     * Initial Kubernetes command line tool (kubectl) to connect to cluster
 
         $ gcloud container clusters get-credentials <cluster name> --region=<cluster region>
+
               Fetching cluster endpoint and auth data.
+
               kubeconfig entry generated for gcp-demo-gke.
 
             NOTE: Accept the authorization pop-up to connect to the cluser
 
         $ kubectl get node 
               <node name>   Ready    <none>   24m   v1.27.8-gke.1067004
+
               <node name>   Ready    <none>   24m   v1.27.8-gke.1067004
+
               <node name>   Ready    <none>   24m   v1.27.8-gke.1067004
 
   * You are now ready to deploy your services on Google GKE.
