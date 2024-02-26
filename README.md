@@ -1,6 +1,6 @@
 # Terraform-gke-cluster
 
-This repo is a branch of Terraform's companion repo to the [Provision a GKE Cluster tutorial](https://developer.hashicorp.com/terraform/tutorials/kubernetes/gke), containing Terraform configuration files to provision a GKE cluster on GCP. The code has been rewritten to use Google's best practices for Terraform and to obfuscation of sensitive information.
+This repo is a branch of Terraform's companion repo to the [Provision a GKE Cluster tutorial](https://developer.hashicorp.com/terraform/tutorials/kubernetes/gke), containing Terraform configuration files to provision a GKE cluster on GCP. The code has been rewritten to use Google's best practices for Terraform and obfuscation of sensitive information.
 
 ## Demonstration principles
 * This repo has modifications of the code utilizing Google's best practices using Terraform (https://cloud.google.com/docs/terraform/best-practices-for-terraform) from the original files and formats.
