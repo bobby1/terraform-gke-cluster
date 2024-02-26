@@ -9,7 +9,7 @@ This repo is a branch of Terraform's companion repo to the [Provision a GKE Clus
 
 ## Pre-requisites
 
-To use this code base, Google Cloud Platform CLI, Terraform and Ansible are required to be installed locally on the server.
+To use this code base, Google Cloud Platform CLI, Terraform, and optionally Kubernetes command-line tools are required to be installed locally on the server.
 
    * Google Cloud Platform project and console access (https://cloud.google.com/docs/get-started)
   
@@ -23,7 +23,7 @@ To use this code base, Google Cloud Platform CLI, Terraform and Ansible are requ
         
         base64 /path/to/file > output.txt
 
-    * In the terraform configuration, use base64decode(file(var.credentials_file)) function to decode the file for use in Terraform. 
+    * In the Terraform configuration, use base64decode(file(var.credentials_file)) function to decode the file for use in Terraform. 
 
 * To create the example environment using Terraform, in the SDLC directory for the environment to deploy, for example, dev
 
