@@ -1,12 +1,24 @@
-/*
+/* ================================================================================= 
+*  Copyright (c) 2024, Bobby Wen, All Rights Reserved 
+*  Use of this source code is governed by a MIT-style
+*  license that can be found at https://en.wikipedia.org/wiki/MIT_License.
 *
+*  Project:    Google Cloud Platform (GCP) Kubernetes examples 
+*  Class:      Terraform GCP IaC file
+*  Purpose:    Terraform script to create GCP Kubernetes Cluster (GKE)
+*  Usage:      terraform (init|plan|apply|destroy)
+*  Pre-requisites: Google Cloud Platform project and console access (https://cloud.google.com/docs/get-started), 
+*                  Terraform by HashiCorp (https://www.terraform.io/)
+*  Beware:     terraform.tfvars file is used to pass environment variable to main.tf.  
+*              Sensative information need to be encode to use Terraform's built in base64decode function
+* 
+*  Developer:  Bobby Wen, Ym9iYnlAd2VuLm9yZwo= (email is base64 encode to prevent file scraping for email addresses)
+* ==================================================================================
 */
-
 # GKE cluster
 data "google_container_engine_versions" "gke_version" {
-  location = var.region
-  # version_prefix = "1.27."
-  version_prefix = "1.28."
+  location       = var.region
+  version_prefix = "1.27."
 }
 
 resource "google_container_cluster" "primary" {
@@ -24,7 +36,6 @@ resource "google_container_cluster" "primary" {
 
 # Separately Managed Node Pool
 resource "google_container_node_pool" "primary_nodes" {
-  # name       = google_container_cluster.primary.name
   name       = "node"
   cluster    = google_container_cluster.primary.name
   location   = var.region
@@ -40,11 +51,8 @@ resource "google_container_node_pool" "primary_nodes" {
     labels = {
       env = var.project_id
     }
-
-    # preemptible  = true
-    # machine_type = "n1-standard-1"
-    # machine_type = "e2-micro"
-    machine_type = "e2-medium"
+    preemptible  = true
+    machine_type = var.instance_type[var.environment]
     tags         = ["gke-node", "${var.project}-gke"]
     metadata = {
       disable-legacy-endpoints = "true"
@@ -52,22 +60,18 @@ resource "google_container_node_pool" "primary_nodes" {
   }
 }
 
-
 # # Kubernetes provider
 # # The Terraform Kubernetes Provider configuration below is used as a learning reference only. 
 # # It references the variables and resources provisioned in this file. 
 # # We recommend you put this in another file -- so you can have a more modular configuration.
 # # https://learn.hashicorp.com/terraform/kubernetes/provision-gke-cluster#optional-configure-terraform-kubernetes-provider
 # # To learn how to schedule deployments and services using the provider, go here: https://learn.hashicorp.com/tutorials/terraform/kubernetes-provider.
-
-# provider "kubernetes" {
-#   load_config_file = "false"
-
-#   host     = google_container_cluster.primary.endpoint
-#   username = var.gke_username
-#   password = var.gke_password
-
-#   client_certificate     = google_container_cluster.primary.master_auth.0.client_certificate
-#   client_key             = google_container_cluster.primary.master_auth.0.client_key
-#   cluster_ca_certificate = google_container_cluster.primary.master_auth.0.cluster_ca_certificate
-# }
+provider "kubernetes" {
+  client_certificate     = google_container_cluster.primary.master_auth.0.client_certificate
+  client_key             = google_container_cluster.primary.master_auth.0.client_key
+  cluster_ca_certificate = google_container_cluster.primary.master_auth.0.cluster_ca_certificate
+  host                   = google_container_cluster.primary.endpoint
+  load_config_file       = "false"
+  password               = base64decode(var.gke_password)
+  username               = var.gke_username
+}
