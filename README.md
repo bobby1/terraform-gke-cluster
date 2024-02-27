@@ -56,11 +56,11 @@ If you no longer need the stack,  you can clean up the deployment by using
   - After the GKE cluster is created, go to GCP's Kubernetes cluster console and start a terminal session.  
     - Initial Kubernetes command line tool (kubectl) to connect to cluster
 
-        $ gcloud container clusters get-credentials \<cluster name\> --region=\<cluster region \>
+         gcloud container clusters get-credentials \<cluster name\> --region=\<cluster region \>
 
-              Fetching cluster endpoint and auth data.
+       Fetching cluster endpoint and auth data.
 
-              kubeconfig entry generated for gcp-demo-gke.
+       kubeconfig entry generated for gcp-demo-gke.
 
             NOTE: Accept the authorization pop-up to connect to the cluser
 
