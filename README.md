@@ -68,17 +68,17 @@ If you no longer need the stack,  you can clean up the deployment by using
 
        Fetching cluster endpoint and auth data.
 
-       kubeconfig entry generated for gcp-demo-gke.
+          kubeconfig entry generated for gcp-demo-gke.
 
-            NOTE: Accept the authorization pop-up to connect to the cluser
+       NOTE: Accept the authorization pop-up to connect to the cluser
 
-            kubectl get node 
-            
-      \<node name\>   Ready    \<none\>   24m   v1.27.8-gke.1067004
+          kubectl get node 
 
       \<node name\>   Ready    \<none\>   24m   v1.27.8-gke.1067004
 
-      <node name>   Ready    \<none\>   24m   v1.27.8-gke.1067004
+      \<node name\>   Ready    \<none\>   24m   v1.27.8-gke.1067004
+
+      \<node name\>   Ready    \<none\>   24m   v1.27.8-gke.1067004
 
   * You are now ready to deploy your services on Google GKE.
 
