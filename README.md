@@ -39,11 +39,11 @@ To use this code base, Google Cloud Platform CLI, Terraform, and optionally Kube
 
   $ terraform plan  
 
-        $ terraform plan -out \<filename\>  is recommended but not required
+        $ terraform plan -out <filename>  is recommended but not required
 
   $ terraform apply
   
-        $ terraform apply \<filename\>  if -out was used
+        $ terraform apply <filename>  if -out was used
   
  Once the server instance is created, terraform will output the server’s name and IP.  You can retrieve this output at any time after creating the instances by running 
   
@@ -56,7 +56,7 @@ If you no longer need the stack,  you can clean up the deployment by using
   - After the GKE cluster is created, go to GCP's Kubernetes cluster console and start a terminal session.  
     - Initial Kubernetes command line tool (kubectl) to connect to cluster
 
-        $ gcloud container clusters get-credentials cluster name --region=/<cluster region />
+        $ gcloud container clusters get-credentials \<cluster name\> --region=\<cluster region \>
 
               Fetching cluster endpoint and auth data.
 
