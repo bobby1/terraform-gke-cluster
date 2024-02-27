@@ -23,7 +23,8 @@ To use this code base, Google Cloud Platform CLI, Terraform, and optionally Kube
         
         base64 /path/to/file > output.txt
           or to encode a variable only
-        echo <variable value> | base64 
+        echo <variable value> | base64 exit
+        
         
 
     * In the Terraform configuration, use base64decode(file(var.credentials_file)) function to decode the file for use in Terraform. 
@@ -95,4 +96,4 @@ Terraform-gke-cluster is created by [Bobby Wen] (https://github.com/bobby1) as a
 
 MIT License
 
-https://github.com/bobby1/terraform-with-ansible/blob/main/LICENSE
+https://github.com/bobby1/terraform-gke-cluster/blob/main/LICENSE
