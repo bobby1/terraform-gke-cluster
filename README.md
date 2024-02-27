@@ -67,8 +67,7 @@ If you no longer need the stack,  you can clean up the deployment by using
           gcloud container clusters get-credentials \<cluster name\> --region=\<cluster region \>
 
        Fetching cluster endpoint and auth data.
-
-          kubeconfig entry generated for gcp-demo-gke.
+       kubeconfig entry generated for gcp-demo-gke.
 
        NOTE: Accept the authorization pop-up to connect to the cluser
 
