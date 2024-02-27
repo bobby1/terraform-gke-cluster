@@ -44,14 +44,14 @@ To use this code base, Google Cloud Platform CLI, Terraform, and optionally Kube
 
        or 
 
-          terraform plan -out <filename>  is recommended but not required
+              terraform plan -out <filename>  is recommended but not required
 
        
           terraform apply
   
         or
        
-          terraform apply <filename>  if -out was used
+              terraform apply <filename>  if -out was used
   
  Once the server instance is created, terraform will output the server’s name and IP.  You can retrieve this output at any time after creating the instances by running 
   
@@ -73,11 +73,12 @@ If you no longer need the stack,  you can clean up the deployment by using
             NOTE: Accept the authorization pop-up to connect to the cluser
 
             kubectl get node 
-      <node name>   Ready    <none>   24m   v1.27.8-gke.1067004
+            
+      \<node name\>   Ready    \<none\>   24m   v1.27.8-gke.1067004
 
-      <node name>   Ready    <none>   24m   v1.27.8-gke.1067004
+      \<node name\>   Ready    \<none\>   24m   v1.27.8-gke.1067004
 
-      <node name>   Ready    <none>   24m   v1.27.8-gke.1067004
+      <node name>   Ready    \<none\>   24m   v1.27.8-gke.1067004
 
   * You are now ready to deploy your services on Google GKE.
 
