@@ -22,6 +22,9 @@ To use this code base, Google Cloud Platform CLI, Terraform, and optionally Kube
     * After you have created a Google account and established a project, create credentials for the project (https://console.cloud.google.com/apis/credentials).  Copy the JSON file to a local file on your computer.  Using the base64 command on a Linux shell command line, encode the file into a base64 hash.
         
         base64 /path/to/file > output.txt
+          or to encode a variable only
+        echo <variable value> | base64 
+        
 
     * In the Terraform configuration, use base64decode(file(var.credentials_file)) function to decode the file for use in Terraform. 
 
