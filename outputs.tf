@@ -15,7 +15,7 @@
 *  Developer:  Bobby Wen, Ym9iYnlAd2VuLm9yZwo= (email is base64 encode to prevent file scraping for email addresses)
 * ==================================================================================
 */
-### Output is organized in logical information groups rather than alphabetical order.
+# Output is organized in logical information groups rather than alphabetical order.
 output "region" {
   value       = var.region
   description = "GCP Region"
@@ -31,6 +31,7 @@ output "project" {
   description = "Local Project name"
 }
 
+# Kubernetes cluster info
 output "kubernetes_cluster_name" {
   value       = google_container_cluster.primary.name
   description = "GKE Cluster Name"

@@ -13,8 +13,7 @@
 *              Sensative information need to be encode to use Terraform's built in base64decode function
 * 
 *  Developer:  Bobby Wen, Ym9iYnlAd2VuLm9yZwo= (email is base64 encode to prevent file scraping for email addresses)
-* ==================================================================================
-*/
+* ================================================================================== */
 # GKE cluster
 data "google_container_engine_versions" "gke_version" {
   location       = var.region
