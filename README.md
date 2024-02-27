@@ -31,18 +31,26 @@ To use this code base, Google Cloud Platform CLI, Terraform, and optionally Kube
 
 2. To create the example environment using Terraform, in the SDLC directory for the environment to deploy, for example, dev
 
-  $ terraform init
+          terraform init
 
-  $ terraform fmt
 
-  $ terraform validate
+          terraform fmt
 
-  $ terraform plan  
+
+          terraform validate
+
+
+          terraform plan  
+
+       or 
 
           terraform plan -out <filename>  is recommended but not required
 
+       
           terraform apply
   
+        or
+       
           terraform apply <filename>  if -out was used
   
  Once the server instance is created, terraform will output the server’s name and IP.  You can retrieve this output at any time after creating the instances by running 
