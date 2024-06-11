@@ -17,7 +17,7 @@
 # GKE cluster
 data "google_container_engine_versions" "gke_version" {
   location       = var.region
-  version_prefix = "1.27."
+  version_prefix = "1.29.4"
 }
 
 resource "google_container_cluster" "primary" {
@@ -39,8 +39,7 @@ resource "google_container_node_pool" "primary_nodes" {
   cluster    = google_container_cluster.primary.name
   location   = var.region
   node_count = var.gke_num_nodes
-  version    = data.google_container_engine_versions.gke_version.release_channel_latest_version["STABLE"]
-
+  
   node_config {
     oauth_scopes = [
       "https://www.googleapis.com/auth/logging.write",
