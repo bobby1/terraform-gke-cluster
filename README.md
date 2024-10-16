@@ -57,8 +57,6 @@ To use this code base, Google Cloud Platform CLI, Terraform, and optionally Kube
   
           terraform output
   
-If you no longer need the stack,  you can clean up the deployment by using
-  $ terraform destroy -auto-approve
 
 3. Verifying the Kubernetes stack
   - After the GKE cluster is created, go to GCP's Kubernetes cluster console and start a terminal session.  
@@ -81,6 +79,9 @@ If you no longer need the stack,  you can clean up the deployment by using
 
   * You are now ready to deploy your services on Google GKE.
 
+Clean-up 
+  If you no longer need the stack,  you can clean up the deployment by using
+    $ terraform destroy -auto-approve
 
 ## Roadmap
 
