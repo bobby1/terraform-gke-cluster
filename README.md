@@ -79,7 +79,8 @@ To use this code base, Google Cloud Platform CLI, Terraform, and optionally Kube
 
   * You are now ready to deploy your services on Google GKE.
 
-Clean-up 
+Clean-up:
+
   If you no longer need the stack,  you can clean up the deployment by using
     $ terraform destroy -auto-approve
 
