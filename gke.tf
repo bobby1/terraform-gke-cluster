@@ -39,7 +39,7 @@ resource "google_container_node_pool" "primary_nodes" {
   cluster    = google_container_cluster.primary.name
   location   = var.region
   node_count = var.gke_num_nodes
-  
+
   node_config {
     oauth_scopes = [
       "https://www.googleapis.com/auth/logging.write",
